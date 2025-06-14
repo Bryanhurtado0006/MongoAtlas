@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
-
 import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from './src/routes/user.js';
@@ -11,6 +9,10 @@ app.use(express.json());
 
 
 app.use('/api/users', userRoutes);
+
+app.get("/",(req,res)=>{
+  res.send("Bienvenido");
+});
 
 
 mongoose.connect(process.env.MONGODB_URI,{
